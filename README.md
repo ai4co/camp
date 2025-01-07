@@ -5,6 +5,10 @@ This is the codebase for the paper *[CAMP: Collaborative Attention Model with Pr
 [![arXiv](https://img.shields.io/badge/arXiv-TODO-b31b1b.svg)](https://arxiv.org/abs/TODO) [![Slack](https://img.shields.io/badge/slack-chat-611f69.svg?logo=slack)](https://join.slack.com/t/rl4co/shared_invite/zt-1ytz2c1v4-0IkQ8NQH4TRXIX8PrRmDhQ)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
+
+> [!IMPORTANT]
+> **This repository is under construction.** We are cooking up the codebase and will release it as soon as we get the bandwidth to do so. Stay tuned!
+
 ## 💡 Introduction
 
 ### *Q. What's the target problem?*
@@ -26,12 +30,11 @@ We solve the *Profiled Vehicle Routing Problem* (**PVRP**), which extends the cl
 This makes the problem particularly relevant for real-world applications where vehicles have different characteristics or operational constraints. We show the practical examples of PVRPs as following: [Left] PVRP-P has preference zones for each vehicle profile. [Right] PVRP-ZC has zone constraints for certain vehicles.
 
 <div align="center">
-    <img src="assets/camp-tasks-illustration.png" style="width: 80%; height: auto;">
-    <i>CPVRP (Profiled Vehicle Routing Problem) examples. </i>
+    <img src="assets/camp-tasks-illustration.png" style="width: 60%; height: auto;">
 </div>
 
 
-### *Q. How do you solve the problem?*
+### *Q. How do we solve the problem?*
 
 We proposed *Collaborative Attention Model with Profiles* (**CAMP**), which is a multi-agent reinforcement learning model designed specifically for solving PVRPs. Key features:
 
@@ -44,7 +47,6 @@ The model learns to balance individual vehicle constraints with overall fleet ef
 
 <div align="center">
     <img src="assets/camp-overview.png" style="width: 100%; height: auto;">
-    <i>CAMP Model Overview</i>
 </div>
 
 
@@ -69,8 +71,7 @@ bottom is better.
 Also if you want to see the visualization of CAMP solutions of PVRP-P with angle and cluster preference distribution, here we are. CAMP successfully routes according to the preference distribution.
 
 <div align="center">
-    <img src="assets/camp-visualization.png" style="width: 80%; height: auto;">
-    <i>CAMP solutions respecting preferences and zones.</i>
+    <img src="assets/camp-visualization.png" style="width: 60%; height: auto;">
 </div>
 
 ## 🚀 Usage
