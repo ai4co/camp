@@ -1,0 +1,92 @@
+_target_: camp.envs.pvrp_p_seq.PVRPPEnv
+name: pvrpp
+
+generator_params:
+  num_loc: 100
+  num_agents: 7
+
+data_dir: ${paths.root_dir}/data/pvrp
+
+# Note that validation is not used for guiding training and this is already the test set
+# so we can directly check the progress here!
+val_file: [
+  "n40_m3_seed1234_random.npz",
+  "n40_m5_seed1234_random.npz",
+  "n40_m7_seed1234_random.npz",
+  "n60_m3_seed1234_random.npz",
+  "n60_m5_seed1234_random.npz",
+  "n60_m7_seed1234_random.npz",
+  "n80_m3_seed1234_random.npz",
+  "n80_m5_seed1234_random.npz",
+  "n80_m7_seed1234_random.npz",
+  "n100_m3_seed1234_random.npz",
+  "n100_m5_seed1234_random.npz",
+  "n100_m7_seed1234_random.npz",
+  "n40_m3_seed1234_pi.npz",
+  "n40_m5_seed1234_pi.npz",
+  "n40_m7_seed1234_pi.npz",
+  "n60_m3_seed1234_pi.npz",
+  "n60_m5_seed1234_pi.npz",
+  "n60_m7_seed1234_pi.npz",
+  "n80_m3_seed1234_pi.npz",
+  "n80_m5_seed1234_pi.npz",
+  "n80_m7_seed1234_pi.npz",
+  "n100_m3_seed1234_pi.npz",
+  "n100_m5_seed1234_pi.npz",
+  "n100_m7_seed1234_pi.npz",
+  "n40_m3_seed1234_cluster.npz",
+  "n40_m5_seed1234_cluster.npz",
+  "n40_m7_seed1234_cluster.npz",
+  "n60_m3_seed1234_cluster.npz",
+  "n60_m5_seed1234_cluster.npz",
+  "n60_m7_seed1234_cluster.npz",
+  "n80_m3_seed1234_cluster.npz",
+  "n80_m5_seed1234_cluster.npz",
+  "n80_m7_seed1234_cluster.npz",
+  "n100_m3_seed1234_cluster.npz",
+  "n100_m5_seed1234_cluster.npz",
+  "n100_m7_seed1234_cluster.npz",
+]
+
+val_dataloader_names: [
+  "n40_m3_random",
+  "n40_m5_random",
+  "n40_m7_random",
+  "n60_m3_random",
+  "n60_m5_random",
+  "n60_m7_random",
+  "n80_m3_random",
+  "n80_m5_random",
+  "n80_m7_random",
+  "n100_m3_random",
+  "n100_m5_random",
+  "n100_m7_random",
+  "n40_m3_pi",
+  "n40_m5_pi",
+  "n40_m7_pi",
+  "n60_m3_pi",
+  "n60_m5_pi",
+  "n60_m7_pi",
+  "n80_m3_pi",
+  "n80_m5_pi",
+  "n80_m7_pi",
+  "n100_m3_pi",
+  "n100_m5_pi",
+  "n100_m7_pi",
+  "n40_m3_cluster",
+  "n40_m5_cluster",
+  "n40_m7_cluster",
+  "n60_m3_cluster",
+  "n60_m5_cluster",
+  "n60_m7_cluster",
+  "n80_m3_cluster",
+  "n80_m5_cluster",
+  "n80_m7_cluster",
+  "n100_m3_cluster",
+  "n100_m5_cluster",
+  "n100_m7_cluster",
+]
+
+test_file: ${env.val_file}
+
+test_dataloader_names: ${env.val_dataloader_names}

@@ -1,8 +1,8 @@
 # ⛺️ CAMP: Collaborative Attention Model with Profiles for Vehicle Routing Problems
 
-This is the codebase for the paper *[CAMP: Collaborative Attention Model with Profiles for Vehicle Routing Problems]()* published in the proceeding of the *24th International Conference on Autonomous Agents and Multi-Agent Systems* (**AAMAS 2025**).
+This is the codebase for the paper *[CAMP: Collaborative Attention Model with Profiles for Vehicle Routing Problems](https://arxiv.org/abs/2501.02977)* published in the proceeding of the *24th International Conference on Autonomous Agents and Multi-Agent Systems* (**AAMAS 2025**).
 
-[![arXiv](https://img.shields.io/badge/arXiv-TODO-b31b1b.svg)](https://arxiv.org/abs/TODO) [![Slack](https://img.shields.io/badge/slack-chat-611f69.svg?logo=slack)](https://join.slack.com/t/rl4co/shared_invite/zt-1ytz2c1v4-0IkQ8NQH4TRXIX8PrRmDhQ)
+[![arXiv](https://img.shields.io/badge/arXiv-2501.02977-b31b1b.svg)](https://arxiv.org/abs/2501.02977) [![Slack](https://img.shields.io/badge/slack-chat-611f69.svg?logo=slack)](https://join.slack.com/t/rl4co/shared_invite/zt-1ytz2c1v4-0IkQ8NQH4TRXIX8PrRmDhQ)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 

@@ -1,0 +1,68 @@
+# @package _global_
+
+# Override defaults: take configs from relative path
+defaults:
+  - override /model: drl.yaml
+  - override /env: vrpp-seq.yaml
+  - override /callbacks: default.yaml
+  - override /trainer: default.yaml
+  - override /logger: wandb.yaml
+
+generator_params:
+  num_loc: 100 # max locs
+  num_agents: 7 # max agents
+
+# Model hyperparameters
+model:
+  policy:
+    _target_: "camp.baselines.drl.policy.DRLPolicy"
+    env:
+      _target_: "camp.envs.vrpp_seq.VRPPreferenceSeqEnv"
+      generator_params:
+        num_loc: ${env.generator_params.num_loc}
+        num_agents: ${env.generator_params.num_agents}
+    obj: "min-sum"
+    multi_objective_time_weights: [0.9, 0.1]
+    max_nodes: ${env.generator_params.num_loc}
+    max_veh: ${env.generator_params.num_agents}
+  batch_size: 128
+  val_batch_size: ${model.batch_size}
+  test_batch_size: ${model.batch_size}
+  train_data_size: 100_000
+  val_data_size: 10_000
+  test_data_size: 10_000
+  optimizer_kwargs:
+    lr: 1e-4
+    weight_decay: 0.0
+  lr_scheduler:
+    "MultiStepLR"
+  lr_scheduler_kwargs:
+    milestones: [80, 95]
+    gamma: 0.1
+  num_augment: 8
+  train_min_agents: 3
+  train_max_agents: ${env.generator_params.num_agents} # max agents is the number of agents
+  train_min_size: 40
+  train_max_size: ${env.generator_params.num_loc} # max size is the number of locations
+  metrics:
+    train: ["loss", "reward", "preference", "time"]
+    val: ["reward", "preference", "time"]
+
+# Logging: we use Wandb in this case
+logger:
+  wandb:
+    project: "vrp-preference"
+    tags: ["drl"]
+    group: "n${env.generator_params.num_loc}_m${env.generator_params.num_agents}_w${model.policy.multi_objective_time_weights}"
+    name: "drl_w${model.policy.multi_objective_time_weights}"
+
+# Trainer: this is a customized version of the PyTorch Lightning trainer.
+trainer:
+  max_epochs: 100
+
+seed: 1234
+
+# Used to save the best model. However, we are not using this in the current setup
+callbacks:
+  model_checkpoint:
+    monitor: "val/reward/n40_m3_random"
